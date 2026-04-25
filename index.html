@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GlossyNails – Nail Salon & Spa</title>
-  <link rel="stylesheet" href="style.css?v=3" />
+  <title>GlossyNails – Nail Salon</title>
+  <link rel="stylesheet" href="style.css?v=5" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -21,9 +21,9 @@
       <a href="#" class="logo">Glossy<span>Nails</span></a>
       <ul class="nav-links">
         <li><a href="#services">Services</a></li>
-        <li><a href="#about">About</a></li>
+        <!-- <li><a href="#about">About</a></li> -->
         <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#testimonials">Reviews</a></li>
+        <!-- <li><a href="#testimonials">Reviews</a></li> -->
         <li><a href="#contact">Contact</a></li>
       </ul>
       <a href="#booking" class="btn btn-nav">Book Now</a>
@@ -35,9 +35,9 @@
     <div class="mobile-menu">
       <ul>
         <li><a href="#services">Services</a></li>
-        <li><a href="#about">About</a></li>
+        <!-- <li><a href="#about">About</a></li> -->
         <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#testimonials">Reviews</a></li>
+        <!-- <li><a href="#testimonials">Reviews</a></li> -->
         <li><a href="#contact">Contact</a></li>
         <li><a href="#booking" class="btn btn-mobile">Book Now</a></li>
       </ul>
@@ -48,7 +48,7 @@
   <section class="hero">
     <div class="hero-bg"></div>
     <div class="container hero-content">
-      <p class="hero-eyebrow">Premium Nail Studio</p>
+      <!-- <p class="hero-eyebrow">Premium Nail Studio</p> -->
       <h1 class="hero-title">Where Beauty<br /><em>Meets Artistry</em></h1>
       <p class="hero-sub">Luxurious nail care treatments crafted for you.<br />Sit back, relax, and leave stunning.</p>
       <div class="hero-actions">
@@ -58,7 +58,7 @@
     </div>
     <div class="hero-badge">
       <div class="badge-ring">
-        <span>★ Est. 2018 ★ Award Winning ★</span>
+        <!-- <span>★ Est. 2018 ★ Award Winning ★</span> -->
       </div>
     </div>
     <div class="hero-scroll">
@@ -83,6 +83,90 @@
       <span>Gel Extension + French</span><span>·</span>
     </div>
   </div>
+
+  <!-- ───────────────────── GALLERY ───────────────────── -->
+  <section class="gallery section" id="gallery">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Our Work</p>
+        <h2>Gallery</h2>
+        <p class="section-desc">A glimpse into the artistry we create every day.</p>
+      </div>
+      <div class="gallery-filter">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="gel">Gel Polish</button>
+        <button class="filter-btn" data-filter="french">French Gel</button>
+        <button class="filter-btn" data-filter="ext">Extensions</button>
+        <button class="filter-btn" data-filter="gelext">Gel Extension</button>
+      </div>
+      <div class="gallery-carousel-wrap">
+        <div class="gallery-track" id="galleryTrack">
+          <div class="gallery-item" data-cat="gel">
+            <div class="g-img g1"></div><span>Gel Polish</span>
+          </div>
+          <!-- <div class="gallery-item" data-cat="gel">
+            <div class="g-img g2"></div><span>Gel Polish</span>
+          </div> -->
+          <div class="gallery-item" data-cat="french">
+            <div class="g-img g3"></div><span>French Gel</span>
+          </div>
+          <!--<div class="gallery-item" data-cat="french">
+            <div class="g-img g6"></div><span>French Gel</span>
+          </div>-->
+          <div class="gallery-item" data-cat="ext">
+            <div class="g-img g5"></div><span>Normal Extension + Gel Polish</span>
+          </div>
+          <!--<div class="gallery-item" data-cat="ext">
+            <div class="g-img g4"></div><span>Normal Extension + French Gel</span>
+          </div>-->
+          <!--<div class="gallery-item" data-cat="gelext">
+            <div class="g-img g7"></div><span>Gel Extension</span>
+          </div>-->
+          <!--<div class="gallery-item" data-cat="gelext">
+            <div class="g-img g8"></div><span>Gel Extension + French</span>
+          </div>-->
+          <!--<div class="gallery-item" data-cat="gelext">
+            <div class="g-img g9"></div><span>Gel Extension</span>
+          </div>-->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────── ABOUT (hidden) ───────────────────── -->
+  <!--
+  <section class="about section" id="about">
+    <div class="container about-grid">
+      <div class="about-images">
+        <div class="about-img about-img-1">
+          <div class="img-placeholder img-p1"></div>
+        </div>
+        <div class="about-img about-img-2">
+          <div class="img-placeholder img-p2"></div>
+        </div>
+        <div class="about-stat">
+          <strong>2,400+</strong>
+          <span>Happy Clients</span>
+        </div>
+      </div>
+      <div class="about-text">
+        <p class="eyebrow">Our Story</p>
+        <h2>Crafted with Care,<br />Built on Trust</h2>
+        <p>GlossyNails was founded in 2018 with one simple belief: every person deserves to feel beautiful and pampered.
+          Our team of certified nail artists brings passion, precision, and creativity to every single appointment.</p>
+        <p>We use only the finest, non-toxic products and maintain the highest standards of hygiene — because your
+          health and happiness are our priority.</p>
+        <ul class="about-list">
+          <li><span class="check">✓</span> Certified & experienced nail technicians</li>
+          <li><span class="check">✓</span> 100% cruelty-free & vegan products</li>
+          <li><span class="check">✓</span> Hospital-grade sterilisation</li>
+          <li><span class="check">✓</span> Complimentary beverages during your visit</li>
+        </ul>
+        <a href="#booking" class="btn btn-primary">Meet Our Team</a>
+      </div>
+    </div>
+  </section>
+  -->
 
   <!-- ───────────────────── SERVICES ───────────────────── -->
   <section class="services section" id="services">
@@ -195,89 +279,8 @@
     </div>
   </section>
 
-  <!-- ───────────────────── ABOUT ───────────────────── -->
-  <section class="about section" id="about">
-    <div class="container about-grid">
-      <div class="about-images">
-        <div class="about-img about-img-1">
-          <div class="img-placeholder img-p1"></div>
-        </div>
-        <div class="about-img about-img-2">
-          <div class="img-placeholder img-p2"></div>
-        </div>
-        <div class="about-stat">
-          <strong>2,400+</strong>
-          <span>Happy Clients</span>
-        </div>
-      </div>
-      <div class="about-text">
-        <p class="eyebrow">Our Story</p>
-        <h2>Crafted with Care,<br />Built on Trust</h2>
-        <p>GlossyNails was founded in 2018 with one simple belief: every person deserves to feel beautiful and pampered.
-          Our team of certified nail artists brings passion, precision, and creativity to every single appointment.</p>
-        <p>We use only the finest, non-toxic products and maintain the highest standards of hygiene — because your
-          health and happiness are our priority.</p>
-        <ul class="about-list">
-          <li><span class="check">✓</span> Certified & experienced nail technicians</li>
-          <li><span class="check">✓</span> 100% cruelty-free & vegan products</li>
-          <li><span class="check">✓</span> Hospital-grade sterilisation</li>
-          <li><span class="check">✓</span> Complimentary beverages during your visit</li>
-        </ul>
-        <a href="#booking" class="btn btn-primary">Meet Our Team</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ───────────────────── GALLERY ───────────────────── -->
-  <section class="gallery section" id="gallery">
-    <div class="container">
-      <div class="section-header">
-        <p class="eyebrow">Our Work</p>
-        <h2>Gallery</h2>
-        <p class="section-desc">A glimpse into the artistry we create every day.</p>
-      </div>
-      <div class="gallery-filter">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="gel">Gel Polish</button>
-        <button class="filter-btn" data-filter="french">French Gel</button>
-        <button class="filter-btn" data-filter="ext">Extensions</button>
-        <button class="filter-btn" data-filter="gelext">Gel Extension</button>
-      </div>
-      <div class="gallery-carousel-wrap">
-        <div class="gallery-track" id="galleryTrack">
-          <div class="gallery-item" data-cat="gel">
-            <div class="g-img g1"></div><span>Gel Polish</span>
-          </div>
-          <div class="gallery-item" data-cat="gel">
-            <div class="g-img g2"></div><span>Gel Polish</span>
-          </div>
-          <div class="gallery-item" data-cat="french">
-            <div class="g-img g3"></div><span>French Gel</span>
-          </div>
-          <div class="gallery-item" data-cat="french">
-            <div class="g-img g6"></div><span>French Gel</span>
-          </div>
-          <div class="gallery-item" data-cat="ext">
-            <div class="g-img g5"></div><span>Normal Extension + Gel Polish</span>
-          </div>
-          <div class="gallery-item" data-cat="ext">
-            <div class="g-img g4"></div><span>Normal Extension + French Gel</span>
-          </div>
-          <div class="gallery-item" data-cat="gelext">
-            <div class="g-img g7"></div><span>Gel Extension</span>
-          </div>
-          <div class="gallery-item" data-cat="gelext">
-            <div class="g-img g8"></div><span>Gel Extension + French</span>
-          </div>
-          <div class="gallery-item" data-cat="gelext">
-            <div class="g-img g9"></div><span>Gel Extension</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ───────────────────── TESTIMONIALS ───────────────────── -->
+  <!-- ───────────────────── TESTIMONIALS (hidden) ───────────────────── -->
+  <!--
   <section class="testimonials section" id="testimonials">
     <div class="container">
       <div class="section-header">
@@ -361,6 +364,7 @@
       </div>
     </div>
   </section>
+  -->
 
   <!-- ───────────────────── BOOKING ───────────────────── -->
   <section class="booking section" id="booking">
@@ -368,7 +372,7 @@
       <div class="booking-info">
         <p class="eyebrow">Appointments</p>
         <h2>Book Your Visit</h2>
-        <p>Reserve your spot in under 2 minutes. We'll send a confirmation and reminder straight to your inbox.</p>
+        <p>Reserve your spot in under 1 hour. We'll send a confirmation and reminder straight to your inbox.</p>
         <div class="booking-details">
           <div class="bd-item">
             <div class="bd-icon">
@@ -379,7 +383,10 @@
             </div>
             <div>
               <strong>Location</strong>
-              <span>123 Rose Avenue, London, W1K 4TH</span>
+              <a href="https://www.google.com/maps?q=23.4795393,58.1081222" target="_blank" rel="noopener noreferrer"
+                class="location-link">
+                <span>Tap to open in Google Maps →</span>
+              </a>
             </div>
           </div>
           <div class="bd-item">
@@ -391,7 +398,7 @@
             </div>
             <div>
               <strong>Hours</strong>
-              <span>Mon–Sat: 9am – 7pm &nbsp;|&nbsp; Sun: 10am – 5pm</span>
+              <span>Saturday – Thursday: 9am – 7pm </span>
             </div>
           </div>
           <div class="bd-item">
@@ -403,7 +410,7 @@
             </div>
             <div>
               <strong>Phone</strong>
-              <span>+44 20 7946 0321</span>
+              <span>+968 7118 7793</span>
             </div>
           </div>
         </div>
@@ -527,16 +534,17 @@
     <div class="container footer-grid">
       <div class="footer-brand">
         <a href="#" class="logo">Glossy<span>Nails</span></a>
-        <p>Premium nail care in the heart of London. Where beauty meets artistry.</p>
+        <p>Premium nail care. Where beauty meets artistry.</p>
       </div>
       <div class="footer-links">
         <h4>Services</h4>
         <ul>
-          <li><a href="#services">Gel Manicure</a></li>
-          <li><a href="#services">Nail Art</a></li>
-          <li><a href="#services">Acrylic Extensions</a></li>
-          <li><a href="#services">Luxury Pedicure</a></li>
-          <li><a href="#services">Paraffin Treatment</a></li>
+          <li><a href="#services">Gel Polish</a></li>
+          <li><a href="#services">French Gel</a></li>
+          <li><a href="#services">Normal Extension + Gel Polish</a></li>
+          <li><a href="#services">Normal Extension + French Gel</a></li>
+          <li><a href="#services">Gel Extension</a></li>
+          <li><a href="#services">Gel Extension + French</a></li>
         </ul>
       </div>
       <div class="footer-links">
@@ -544,7 +552,7 @@
         <ul>
           <li><a href="#about">About Us</a></li>
           <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#testimonials">Reviews</a></li>
+          <!-- <li><a href="#testimonials">Reviews</a></li> -->
           <li><a href="#booking">Book Now</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
