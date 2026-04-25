@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GlossyNails – Nail Salon & Spa</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=3" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -69,18 +69,18 @@
   <!-- ───────────────────── STRIP ───────────────────── -->
   <div class="strip">
     <div class="strip-track">
-      <span>Gel Manicure</span><span>·</span>
-      <span>Nail Art</span><span>·</span>
-      <span>Acrylic Extensions</span><span>·</span>
-      <span>Pedicure Spa</span><span>·</span>
-      <span>Paraffin Treatment</span><span>·</span>
-      <span>Nail Repair</span><span>·</span>
-      <span>Gel Manicure</span><span>·</span>
-      <span>Nail Art</span><span>·</span>
-      <span>Acrylic Extensions</span><span>·</span>
-      <span>Pedicure Spa</span><span>·</span>
-      <span>Paraffin Treatment</span><span>·</span>
-      <span>Nail Repair</span><span>·</span>
+      <span>Gel Polish</span><span>·</span>
+      <span>French Gel</span><span>·</span>
+      <span>Normal Extension + Gel Polish</span><span>·</span>
+      <span>Normal Extension + French Gel</span><span>·</span>
+      <span>Gel Extension</span><span>·</span>
+      <span>Gel Extension + French</span><span>·</span>
+      <span>Gel Polish</span><span>·</span>
+      <span>French Gel</span><span>·</span>
+      <span>Normal Extension + Gel Polish</span><span>·</span>
+      <span>Normal Extension + French Gel</span><span>·</span>
+      <span>Gel Extension</span><span>·</span>
+      <span>Gel Extension + French</span><span>·</span>
     </div>
   </div>
 
@@ -238,38 +238,40 @@
       </div>
       <div class="gallery-filter">
         <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="gel">Gel</button>
-        <button class="filter-btn" data-filter="art">Nail Art</button>
-        <button class="filter-btn" data-filter="acrylic">Acrylic</button>
-        <button class="filter-btn" data-filter="pedi">Pedicure</button>
+        <button class="filter-btn" data-filter="gel">Gel Polish</button>
+        <button class="filter-btn" data-filter="french">French Gel</button>
+        <button class="filter-btn" data-filter="ext">Extensions</button>
+        <button class="filter-btn" data-filter="gelext">Gel Extension</button>
       </div>
-      <div class="gallery-grid">
-        <div class="gallery-item" data-cat="gel">
-          <div class="g-img g1"></div><span>Classic Gel</span>
-        </div>
-        <div class="gallery-item tall" data-cat="art">
-          <div class="g-img g2"></div><span>Floral Art</span>
-        </div>
-        <div class="gallery-item" data-cat="acrylic">
-          <div class="g-img g3"></div><span>Coffin Shape</span>
-        </div>
-        <div class="gallery-item" data-cat="pedi">
-          <div class="g-img g4"></div><span>French Pedi</span>
-        </div>
-        <div class="gallery-item wide" data-cat="art">
-          <div class="g-img g5"></div><span>Marble Design</span>
-        </div>
-        <div class="gallery-item" data-cat="gel">
-          <div class="g-img g6"></div><span>Ombre Gel</span>
-        </div>
-        <div class="gallery-item" data-cat="acrylic">
-          <div class="g-img g7"></div><span>Stiletto Tips</span>
-        </div>
-        <div class="gallery-item tall" data-cat="art">
-          <div class="g-img g8"></div><span>Glitter Art</span>
-        </div>
-        <div class="gallery-item" data-cat="pedi">
-          <div class="g-img g9"></div><span>Spa Pedicure</span>
+      <div class="gallery-carousel-wrap">
+        <div class="gallery-track" id="galleryTrack">
+          <div class="gallery-item" data-cat="gel">
+            <div class="g-img g1"></div><span>Gel Polish</span>
+          </div>
+          <div class="gallery-item" data-cat="gel">
+            <div class="g-img g2"></div><span>Gel Polish</span>
+          </div>
+          <div class="gallery-item" data-cat="french">
+            <div class="g-img g3"></div><span>French Gel</span>
+          </div>
+          <div class="gallery-item" data-cat="french">
+            <div class="g-img g6"></div><span>French Gel</span>
+          </div>
+          <div class="gallery-item" data-cat="ext">
+            <div class="g-img g5"></div><span>Normal Extension + Gel Polish</span>
+          </div>
+          <div class="gallery-item" data-cat="ext">
+            <div class="g-img g4"></div><span>Normal Extension + French Gel</span>
+          </div>
+          <div class="gallery-item" data-cat="gelext">
+            <div class="g-img g7"></div><span>Gel Extension</span>
+          </div>
+          <div class="gallery-item" data-cat="gelext">
+            <div class="g-img g8"></div><span>Gel Extension + French</span>
+          </div>
+          <div class="gallery-item" data-cat="gelext">
+            <div class="g-img g9"></div><span>Gel Extension</span>
+          </div>
         </div>
       </div>
     </div>
@@ -483,14 +485,10 @@
   <section class="contact section" id="contact">
     <div class="container contact-grid">
       <div class="contact-map">
-        <div class="map-placeholder">
-          <svg viewBox="0 0 64 64" fill="none">
-            <circle cx="32" cy="28" r="14" fill="#f5c6cc" />
-            <circle cx="32" cy="28" r="6" fill="#c9566e" />
-            <path d="M32 42c0 0-16 14-16 20h32c0-6-16-20-16-20z" fill="#f5c6cc" />
-          </svg>
-          <p>123 Rose Avenue, London W1K 4TH</p>
-        </div>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d228.7169366351912!2d58.1081222!3d23.4795393!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e8e09002ada69ed%3A0x1275dd2ff6a0b05e!2z2YXZhtiz2YQg2K7ZhNmK2YHYqSDYqNmGINiz2YTZitmF2KfZhiDYp9mE2K3Yp9ix2KvZig!5e0!3m2!1sen!2som!4v1777118042975!5m2!1sen!2som"
+          class="contact-map-iframe" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
       </div>
       <div class="contact-info">
         <p class="eyebrow">Get in Touch</p>
@@ -569,7 +567,7 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=3"></script>
 </body>
 
 </html>

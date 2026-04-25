@@ -24,21 +24,80 @@ mobileMenu.querySelectorAll('a').forEach(a => {
   });
 });
 
-/* ── Gallery filter ── */
-const filterBtns = document.querySelectorAll('.filter-btn');
+/* ── Gallery carousel ── */
+const filterBtns  = document.querySelectorAll('.filter-btn');
 const galleryItems = document.querySelectorAll('.gallery-item');
+const galleryTrack = document.getElementById('galleryTrack');
 
+let rafId        = null;
+let autoScrollOn = true;
+
+function startAutoScroll() {
+  autoScrollOn = true;
+  function tick() {
+    if (!autoScrollOn) return;
+    galleryTrack.scrollLeft += 0.7;
+    if (galleryTrack.scrollLeft >= galleryTrack.scrollWidth - galleryTrack.clientWidth - 1) {
+      galleryTrack.scrollLeft = 0;
+    }
+    rafId = requestAnimationFrame(tick);
+  }
+  cancelAnimationFrame(rafId);
+  rafId = requestAnimationFrame(tick);
+}
+
+function stopAutoScroll() {
+  autoScrollOn = false;
+  cancelAnimationFrame(rafId);
+}
+
+/* Pause auto-scroll on hover (desktop) */
+galleryTrack.addEventListener('mouseenter', () => { if (autoScrollOn) cancelAnimationFrame(rafId); });
+galleryTrack.addEventListener('mouseleave', () => { if (autoScrollOn) startAutoScroll(); });
+
+/* Touch / drag to scroll (works in both modes) */
+let dragStart = null;
+galleryTrack.addEventListener('touchstart', e => { dragStart = e.touches[0].clientX; }, { passive: true });
+galleryTrack.addEventListener('touchmove', e => {
+  if (dragStart === null) return;
+  const dx = dragStart - e.touches[0].clientX;
+  galleryTrack.scrollLeft += dx;
+  dragStart = e.touches[0].clientX;
+}, { passive: true });
+galleryTrack.addEventListener('touchend', () => { dragStart = null; });
+
+/* Mouse drag */
+let mouseDown = false, startX, startScroll;
+galleryTrack.addEventListener('mousedown', e => {
+  mouseDown = true; startX = e.pageX; startScroll = galleryTrack.scrollLeft;
+  galleryTrack.classList.add('dragging');
+});
+window.addEventListener('mouseup', () => { mouseDown = false; galleryTrack.classList.remove('dragging'); });
+galleryTrack.addEventListener('mousemove', e => {
+  if (!mouseDown) return;
+  galleryTrack.scrollLeft = startScroll - (e.pageX - startX);
+});
+
+/* Filter buttons */
 filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     filterBtns.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     const filter = btn.dataset.filter;
+
     galleryItems.forEach(item => {
       const match = filter === 'all' || item.dataset.cat === filter;
       item.classList.toggle('hidden', !match);
     });
+
+    galleryTrack.scrollLeft = 0;
+    if (filter === 'all') startAutoScroll();
+    else stopAutoScroll();
   });
 });
+
+/* Start auto-scroll once layout is painted */
+window.addEventListener('load', () => setTimeout(startAutoScroll, 100));
 
 /* ── Testimonials slider ── */
 const track       = document.getElementById('testimonialTrack');
@@ -133,7 +192,7 @@ newsletterForm.addEventListener('submit', e => {
 
 /* ── Scroll reveal ── */
 const reveals = document.querySelectorAll(
-  '.service-card, .section-header, .about-text, .about-images, .testi-card, .booking-info, .booking-form, .contact-info, .contact-map, .gallery-item'
+  '.service-card, .section-header, .about-text, .about-images, .testi-card, .booking-info, .booking-form, .contact-info, .contact-map'
 );
 
 reveals.forEach(el => el.classList.add('reveal'));
