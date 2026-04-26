@@ -100,54 +100,55 @@ filterBtns.forEach(btn => {
 window.addEventListener('load', () => setTimeout(startAutoScroll, 100));
 
 /* ── Testimonials slider ── */
-const track       = document.getElementById('testimonialTrack');
-const cards       = track.querySelectorAll('.testi-card');
-const dotsWrap    = document.getElementById('testiDots');
-const prevBtn     = document.getElementById('testiPrev');
-const nextBtn     = document.getElementById('testiNext');
+const track = document.getElementById('testimonialTrack');
+if (track) {
+  const cards    = track.querySelectorAll('.testi-card');
+  const dotsWrap = document.getElementById('testiDots');
+  const prevBtn  = document.getElementById('testiPrev');
+  const nextBtn  = document.getElementById('testiNext');
 
-let current = 0;
-const getVisible = () => window.innerWidth <= 768 ? 1 : window.innerWidth <= 1024 ? 2 : 3;
+  let current = 0;
+  const getVisible = () => window.innerWidth <= 768 ? 1 : window.innerWidth <= 1024 ? 2 : 3;
 
-function buildDots() {
-  dotsWrap.innerHTML = '';
-  const pages = Math.ceil(cards.length / getVisible());
-  for (let i = 0; i < pages; i++) {
-    const d = document.createElement('button');
-    d.className = 'testi-dot' + (i === Math.floor(current / getVisible()) ? ' active' : '');
-    d.addEventListener('click', () => goTo(i * getVisible()));
-    dotsWrap.appendChild(d);
+  function buildDots() {
+    dotsWrap.innerHTML = '';
+    const pages = Math.ceil(cards.length / getVisible());
+    for (let i = 0; i < pages; i++) {
+      const d = document.createElement('button');
+      d.className = 'testi-dot' + (i === Math.floor(current / getVisible()) ? ' active' : '');
+      d.addEventListener('click', () => goTo(i * getVisible()));
+      dotsWrap.appendChild(d);
+    }
   }
+
+  function goTo(idx) {
+    const v = getVisible();
+    const max = cards.length - v;
+    current = Math.max(0, Math.min(idx, max));
+    const cardWidth = cards[0].offsetWidth + 24;
+    track.style.transform = `translateX(-${current * cardWidth}px)`;
+    updateDots();
+  }
+
+  function updateDots() {
+    const v = getVisible();
+    dotsWrap.querySelectorAll('.testi-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === Math.floor(current / v));
+    });
+  }
+
+  prevBtn.addEventListener('click', () => goTo(current - getVisible()));
+  nextBtn.addEventListener('click', () => goTo(current + getVisible()));
+
+  buildDots();
+  window.addEventListener('resize', () => { buildDots(); goTo(0); });
+
+  let autoSlide = setInterval(() => goTo(current + getVisible()), 5000);
+  [prevBtn, nextBtn].forEach(b => b.addEventListener('click', () => {
+    clearInterval(autoSlide);
+    autoSlide = setInterval(() => goTo(current + getVisible()), 5000);
+  }));
 }
-
-function goTo(idx) {
-  const v = getVisible();
-  const max = cards.length - v;
-  current = Math.max(0, Math.min(idx, max));
-  const cardWidth = cards[0].offsetWidth + 24;
-  track.style.transform = `translateX(-${current * cardWidth}px)`;
-  updateDots();
-}
-
-function updateDots() {
-  const v = getVisible();
-  dotsWrap.querySelectorAll('.testi-dot').forEach((d, i) => {
-    d.classList.toggle('active', i === Math.floor(current / v));
-  });
-}
-
-prevBtn.addEventListener('click', () => goTo(current - getVisible()));
-nextBtn.addEventListener('click', () => goTo(current + getVisible()));
-
-buildDots();
-window.addEventListener('resize', () => { buildDots(); goTo(0); });
-
-/* Auto-advance testimonials */
-let autoSlide = setInterval(() => goTo(current + getVisible()), 5000);
-[prevBtn, nextBtn].forEach(b => b.addEventListener('click', () => {
-  clearInterval(autoSlide);
-  autoSlide = setInterval(() => goTo(current + getVisible()), 5000);
-}));
 
 
 /* ── Booking form ── */
