@@ -50,24 +50,27 @@ async def create_booking(booking: Booking):
         """
     })
 
-    # Confirmation email to customer
-    resend.Emails.send({
-        "from": "GlossyNails <onboarding@resend.dev>",
-        "to": [booking.email],
-        "subject": "Your booking request has been received ✨",
-        "html": f"""
-        <div style="font-family:sans-serif;max-width:500px;margin:0 auto;padding:24px;">
-            <h2 style="color:#c9566e;">Thank you, {booking.fname}! 💅</h2>
-            <p style="color:#7a6b6e;">We've received your booking request and will confirm it shortly.</p>
-            <div style="background:#fdf0f2;border-radius:12px;padding:20px;margin:20px 0;">
-                <p><strong>Service:</strong> {booking.service}</p>
-                <p><strong>Date:</strong> {booking.date}</p>
-                <p><strong>Time:</strong> {booking.time}</p>
+    # Confirmation email to customer (best-effort — may fail on free Resend tier)
+    try:
+        resend.Emails.send({
+            "from": "GlossyNails <onboarding@resend.dev>",
+            "to": [booking.email],
+            "subject": "Your booking request has been received ✨",
+            "html": f"""
+            <div style="font-family:sans-serif;max-width:500px;margin:0 auto;padding:24px;">
+                <h2 style="color:#c9566e;">Thank you, {booking.fname}! 💅</h2>
+                <p style="color:#7a6b6e;">We've received your booking request and will confirm it shortly.</p>
+                <div style="background:#fdf0f2;border-radius:12px;padding:20px;margin:20px 0;">
+                    <p><strong>Service:</strong> {booking.service}</p>
+                    <p><strong>Date:</strong> {booking.date}</p>
+                    <p><strong>Time:</strong> {booking.time}</p>
+                </div>
+                <p style="color:#7a6b6e;">See you soon! 🌸<br/><strong>GlossyNails Team</strong></p>
             </div>
-            <p style="color:#7a6b6e;">See you soon! 🌸<br/><strong>GlossyNails Team</strong></p>
-        </div>
-        """
-    })
+            """
+        })
+    except Exception:
+        pass
 
     return {"success": True}
 
