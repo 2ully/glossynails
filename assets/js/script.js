@@ -149,31 +149,53 @@ let autoSlide = setInterval(() => goTo(current + getVisible()), 5000);
   autoSlide = setInterval(() => goTo(current + getVisible()), 5000);
 }));
 
+
 /* ── Booking form ── */
 const bookingForm = document.getElementById('bookingForm');
 const formSuccess = document.getElementById('formSuccess');
 
-/* Set min date to today */
 const dateInput = document.getElementById('date');
-const today = new Date().toISOString().split('T')[0];
-dateInput.min = today;
+dateInput.min = new Date().toISOString().split('T')[0];
 
-bookingForm.addEventListener('submit', e => {
+bookingForm.addEventListener('submit', async e => {
   e.preventDefault();
-  if (!bookingForm.checkValidity()) {
-    bookingForm.reportValidity();
-    return;
-  }
+  if (!bookingForm.checkValidity()) { bookingForm.reportValidity(); return; }
+
   const btn = bookingForm.querySelector('button[type="submit"]');
   btn.textContent = 'Booking…';
   btn.disabled = true;
 
-  setTimeout(() => {
-    bookingForm.style.opacity = '.4';
-    bookingForm.style.pointerEvents = 'none';
-    formSuccess.classList.add('show');
-    btn.textContent = 'Confirmed!';
-  }, 1200);
+  const data = {
+    fname:   document.getElementById('fname').value,
+    lname:   document.getElementById('lname').value,
+    email:   document.getElementById('email').value,
+    phone:   document.getElementById('phone').value,
+    service: document.getElementById('service').value,
+    date:    document.getElementById('date').value,
+    time:    document.getElementById('time').value,
+    notes:   document.getElementById('notes').value,
+  };
+
+  try {
+    const res = await fetch('/api/booking', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+
+    if (res.ok) {
+      bookingForm.style.opacity = '.4';
+      bookingForm.style.pointerEvents = 'none';
+      formSuccess.classList.add('show');
+      btn.textContent = 'Confirmed!';
+    } else {
+      btn.textContent = 'Something went wrong. Try again.';
+      btn.disabled = false;
+    }
+  } catch {
+    btn.textContent = 'Something went wrong. Try again.';
+    btn.disabled = false;
+  }
 });
 
 /* ── Newsletter form ── */

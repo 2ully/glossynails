@@ -841,37 +841,37 @@ em {
 
 /* Gallery images */
 .g1 {
-  background-image: url('img/gel-polish.jpeg');
+  background-image: url('../img/gel-polish.jpeg');
   background-size: cover;
   background-position: center;
 }
 
 /* .g2 {
-  background-image: url('img/gel-polish.jpeg');
+  background-image: url('../img/gel-polish.jpeg');
   background-size: cover;
   background-position: center;
 } */
 
 .g3 {
-  background-image: url('img/french-gel.jpeg');
+  background-image: url('../img/french-gel.jpeg');
   background-size: cover;
   background-position: center;
 }
 
 /* .g4 {
-  background-image: url('img/normal-extention+french.jpeg');
+  background-image: url('../img/normal-extention+french.jpeg');
   background-size: cover;
   background-position: center;
 } */
 
 .g5 {
-  background-image: url('img/normal-extention+french.jpeg');
+  background-image: url('../img/normal-extention+french.jpeg');
   background-size: cover;
   background-position: center;
 }
 
 /* .g6 {
-  background-image: url('img/french-gel.jpeg');
+  background-image: url('../img/french-gel.jpeg');
   background-size: cover;
   background-position: center;
 } */
@@ -1112,6 +1112,14 @@ em {
   padding: 44px;
   box-shadow: var(--shadow-lg);
   border: 1px solid var(--rose-light);
+}
+.cal-embed-wrapper {
+  background: #fff;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--rose-light);
+  overflow: hidden;
+  min-height: 600px;
 }
 
 .form-row {
